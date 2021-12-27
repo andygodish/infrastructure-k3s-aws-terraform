@@ -1,14 +1,14 @@
 Host k3s-init-server 
-  Hostname 96.127.123.219
+  Hostname 52.222.14.101
   User ubuntu
   IdentityFile ~/.ssh/rancher-laptop
 
 Host k3s-server-0
-  Hostname 15.205.70.217
+  Hostname 15.205.218.41
   User ubuntu
   IdentityFile ~/.ssh/rancher-laptop
 
 Host k3s-server-1 
-  Hostname 15.205.138.220
+  Hostname 160.1.144.83
   User ubuntu
   IdentityFile ~/.ssh/rancher-laptop

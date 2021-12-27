@@ -18,6 +18,8 @@ tls-san:
 EOF
 
 curl -sfL https://get.k3s.io | sh -s - server \
+  --kubelet-arg="cloud-provider=external" \
+  --kubelet-arg="provider-id=aws:///$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)/$(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
 
 echo "Waiting for k3s config file to exist.."
 while [[ ! -f /etc/rancher/k3s/k3s.yaml ]]; do

@@ -28,16 +28,19 @@ variable "cluster_name" {
 variable "is_public" {
     type = bool
 }
-
+variable "k3s_agent_count" {
+  type = number
+  default = 3
+}
+variable "k3s_agent_size" {
+  type    = string
+  default = "t2.xlarge"
+}
 variable "k3s_server_size" {
   type    = string
   default = "t2.xlarge"
 }
 
-variable "k3s_agent_size" {
-  type    = string
-  default = "t2.xlarge"
-}
 
 variable "os" {
   type        = string

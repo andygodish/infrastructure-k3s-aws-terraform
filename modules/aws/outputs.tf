@@ -17,6 +17,15 @@ data "template_file" "server_userdata" {
   }
 }
 
+data "template_file" "agent_userdata" {
+  template = file("${path.module}/templates/agent_userdata.sh")
+
+  vars = {
+    cp_lb_host = aws_elb.k3s_cp_elb.dns_name
+    k3s_token = random_string.k3s_token.result
+  }
+}
+
 resource "local_file" "ssh_config" {
   content = templatefile("${path.module}/templates/ssh_config.tpl",
     {
