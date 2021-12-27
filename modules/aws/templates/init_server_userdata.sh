@@ -26,6 +26,9 @@ while [[ ! -f /etc/rancher/k3s/k3s.yaml ]]; do
   sleep 2
 done
 
+echo "Installing cloud controller RBAC"
+curl https://raw.githubusercontent.com/andygodish/infrastructure-k3s-aws-terraform/main/manifests/aws-cloud-provider.yaml
+
 cp /etc/rancher/k3s/k3s.yaml /tmp/k3s.yaml
 sed -i -e "s/127.0.0.1/${cp_lb_host}/g" /tmp/k3s.yaml
 
