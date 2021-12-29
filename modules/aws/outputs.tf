@@ -4,6 +4,7 @@ data "template_file" "init_server_userdata" {
   vars = {
     cp_lb_host = aws_elb.k3s_cp_elb.dns_name
     k3s_token = random_string.k3s_token.result
+    region = var.region
   }
 }
 
@@ -13,6 +14,7 @@ data "template_file" "server_userdata" {
   vars = {
     cp_lb_host = aws_elb.k3s_cp_elb.dns_name
     k3s_token = random_string.k3s_token.result
+    region = var.region
     server_ip = aws_instance.init_server[0].public_ip
   }
 }
@@ -23,6 +25,7 @@ data "template_file" "agent_userdata" {
   vars = {
     cp_lb_host = aws_elb.k3s_cp_elb.dns_name
     k3s_token = random_string.k3s_token.result
+    region = var.region
   }
 }
 

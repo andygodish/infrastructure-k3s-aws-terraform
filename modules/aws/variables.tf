@@ -30,7 +30,6 @@ variable "is_public" {
 }
 variable "k3s_agent_count" {
   type = number
-  default = 3
 }
 variable "k3s_agent_size" {
   type    = string

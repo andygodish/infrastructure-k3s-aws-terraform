@@ -57,6 +57,10 @@ variable "is_public" {
     type = bool
 }
 
+variable "k3s_agent_count" {
+  type = number
+}
+
 variable "os" {
   type        = string
   description = "AWS AMI OS"

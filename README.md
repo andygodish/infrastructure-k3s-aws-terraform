@@ -17,7 +17,9 @@ terraform destroy -var-file=terraform.tfvars --auto-approve
 export PATH=/var/libe/rancher/k3s/bin:$PATH
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 alias k=kubectl
-```
 
-## K3s Env Vars
+# retrieve kubeconfig
+
+scp k3s-init-server:/tmp/k3s.yaml ~/.kube/config
+```
 
