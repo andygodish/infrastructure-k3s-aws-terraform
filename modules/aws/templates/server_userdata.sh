@@ -3,7 +3,8 @@
 # apt-get update -y
 # apt-get install -y curl python-pip
 
-export K3S_NODE_NAME="$(hostname).${region}.compute.internal"
+# export K3S_NODE_NAME="$(hostname).${region}.compute.internal"
+export K3S_NODE_NAME="$(hostname).ec2.internal"
 
 mkdir -p /etc/rancher/k3s
 
@@ -11,7 +12,8 @@ cat << EOF > /etc/rancher/k3s/config.yaml
 disable-cloud-controller: true
 EOF
 
-curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=v1.21.7+k3s1 INSTALL_K3S_EXEC="server --server https://${server_ip}:6443" \
+# curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.7+k3s1 INSTALL_K3S_EXEC="server --server https://${server_ip}:6443" \
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --server https://${server_ip}:6443" \
   K3S_TOKEN=${k3s_token} sh -s - \
   --kubelet-arg="cloud-provider=external" \
   --kubelet-arg="provider-id=aws:///$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)/$(curl -s http://169.254.169.254/latest/meta-data/instance-id)"

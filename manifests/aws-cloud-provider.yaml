@@ -143,7 +143,7 @@ spec:
       serviceAccountName: cloud-controller-manager
       containers:
         - name: aws-cloud-controller-manager
-          image: gcr.io/k8s-staging-provider-aws/cloud-controller-manager:v20211208-helm-chart-aws-cloud-controller-manager-0.0.5-14-ga91c69e
+          image: gcr.io/k8s-staging-provider-aws/cloud-controller-manager:v20220105-helm-chart-aws-cloud-controller-manager-0.0.5-19-ga8ac0c4
           args:
             - --v=2
             - --cloud-provider=aws
