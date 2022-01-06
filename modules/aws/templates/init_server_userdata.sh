@@ -12,6 +12,7 @@ export K3S_NODE_NAME="$(hostname).ec2.internal"
 mkdir -p /etc/rancher/k3s
 
 cat << EOF > /etc/rancher/k3s/config.yaml
+cluster-init: true
 write-kubeconfig-mode: 644
 disable-cloud-controller: true
 token: $K3S_TOKEN
