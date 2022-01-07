@@ -12,7 +12,7 @@ token: $K3S_TOKEN
 server: https://$CP_LB_HOST:6443
 EOF
 
-# curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.7+k3s1 sh -s - agent \
-curl -sfL https://get.k3s.io | sh -s - agent \
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.7+k3s1 sh -s - agent \
+# curl -sfL https://get.k3s.io | sh -s - agent \
     --kubelet-arg="cloud-provider=external" \
     --kubelet-arg="provider-id=aws:///$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)/$(curl -s http://169.254.169.254/latest/meta-data/instance-id)"

@@ -20,8 +20,8 @@ tls-san:
 - $CP_LB_HOST
 EOF
 
-# curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.7+k3s1 sh -s - server \
-curl -sfL https://get.k3s.io | sh -s - server \
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.7+k3s1 sh -s - server \
+# curl -sfL https://get.k3s.io | sh -s - server \
   --kubelet-arg="cloud-provider=external" \
   --kubelet-arg="provider-id=aws:///$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)/$(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
 
@@ -32,6 +32,8 @@ done
 
 echo "Installing cloud controller RBAC"
 curl https://raw.githubusercontent.com/andygodish/infrastructure-k3s-aws-terraform/main/manifests/aws-cloud-provider.yaml | kubectl apply -f -
+# curl https://raw.githubusercontent.com/atoy3731/aws-k8s-terraform/master/manifests/aws-cloud-provider-manifests.yaml | kubectl apply -f -
+
 
 cp /etc/rancher/k3s/k3s.yaml /tmp/k3s.yaml
 sed -i -e "s/127.0.0.1/${cp_lb_host}/g" /tmp/k3s.yaml
