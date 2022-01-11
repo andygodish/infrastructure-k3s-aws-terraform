@@ -106,7 +106,7 @@ spec:
     - nginx.pilab.dev
     secretName: nginx-tls
   rules:
-    - host: nginx.pilab.dev
+    - host: nginx.andygodish.com
       http:
         paths:
           - path: /
