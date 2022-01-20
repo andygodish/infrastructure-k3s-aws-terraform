@@ -23,3 +23,9 @@ alias k=kubectl
 scp k3s-init-server:/tmp/k3s.yaml ~/.kube/config
 ```
 
+## AWS External Cloud Controller Manager
+
+See init_server_userdata.sh under templates and note the kubectl apply command. For some reason, new version of the container image cause the pods to crashloop. The older version appears to work with at least kubernetes 1.21.7. You'll need to test additional versions.
+
+When using the external aws cloud controller, for some reason the 
+

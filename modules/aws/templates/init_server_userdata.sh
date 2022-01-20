@@ -31,8 +31,8 @@ while [[ ! -f /etc/rancher/k3s/k3s.yaml ]]; do
 done
 
 echo "Installing cloud controller RBAC"
-curl https://raw.githubusercontent.com/andygodish/infrastructure-k3s-aws-terraform/main/manifests/aws-cloud-provider.yaml | kubectl apply -f -
-# curl https://raw.githubusercontent.com/atoy3731/aws-k8s-terraform/master/manifests/aws-cloud-provider-manifests.yaml | kubectl apply -f -
+# curl https://raw.githubusercontent.com/andygodish/infrastructure-k3s-aws-terraform/main/manifests/aws-cloud-provider.yaml | kubectl apply -f -
+curl https://raw.githubusercontent.com/atoy3731/aws-k8s-terraform/master/manifests/aws-cloud-provider-manifests.yaml | kubectl apply -f -
 
 
 cp /etc/rancher/k3s/k3s.yaml /tmp/k3s.yaml
